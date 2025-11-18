@@ -1,0 +1,11 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+
+# Test and coverage results
+*.pytest_cache/
+
+# Virtual Environment
+virtualenv
+
+# Database files
+*.db
