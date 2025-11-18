@@ -9,7 +9,7 @@ class DataBase:
         self.data[user_id] = name 
 
     def get_user(self,user_id:str):
-        return self.data.get(user_id,None)
+        return self.data.get(user_id,"User not found")
     
     def delete_user(self,user_id:str):
         if user_id in self.data:
