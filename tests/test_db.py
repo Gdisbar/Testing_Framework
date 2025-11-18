@@ -21,4 +21,4 @@ def test_duplicate_add_user(db):
 def test_delete_user(db):
     db.add_user("2","Nabin")
     db.delete_user("2")
-    assert db.get_user("2")=="User not found"
+    assert db.get_user("2") is None

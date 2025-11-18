@@ -3,13 +3,13 @@ class DataBase:
     def __init__(self) -> None:
         self.data = {} # Simulating DB
     
-    def add_user(self,user_id:str,name:str)->None:
+    def add_user(self,user_id:str,name:str):
         if user_id in self.data:
             raise ValueError("User already exist")
         self.data[user_id] = name 
 
     def get_user(self,user_id:str):
-        return self.data.get(user_id,"User not found")
+        return self.data.get(user_id,None)
     
     def delete_user(self,user_id:str):
         if user_id in self.data:

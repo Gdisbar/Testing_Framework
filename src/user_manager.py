@@ -11,4 +11,4 @@ class UserManager:
         return True
 
     def get_user(self, username):
-        return self.users.get(username)
+        return self.users.get(username,"User not found")
