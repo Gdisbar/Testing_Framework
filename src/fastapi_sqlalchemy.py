@@ -1,5 +1,5 @@
 from fastapi import FastAPI, Depends
-from pydantic import BaseModel
+from pydantic import BaseModel,ConfigDict
 from typing import List
 from sqlalchemy import create_engine, Column, Integer, String
 from sqlalchemy.orm import sessionmaker, Session, declarative_base
@@ -41,12 +41,12 @@ def create_product(product: ProductCreate, db: Session = Depends(get_db)):
     return db_product
 
 class ProductOut(BaseModel):
+    model_config = ConfigDict(from_attributes=True)
+
     id: int
     name: str
     description: str
 
-    class Config:
-        from_attributes = True
 
 @app.get("/get_products/",response_model=List[ProductOut])
 def get_product(db: Session = Depends(get_db)):
