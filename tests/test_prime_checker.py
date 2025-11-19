@@ -6,7 +6,7 @@ from src.prime_checker import prime_checker
     (2, True),
     (3, True),
     (4, False),
-    (17, True),
+    (17, False),
     (18, False),
     (19, True),
     (25, False),

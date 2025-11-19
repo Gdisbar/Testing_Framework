@@ -1,3 +1,4 @@
+import sqlite3
 
 class DataBase:
     def __init__(self) -> None:
@@ -15,16 +16,10 @@ class DataBase:
         if user_id in self.data:
             del self.data[user_id]
 
-
-class UserManager:
-    def __init__(self) -> None:
-        self.users = {}
-    
-    def add_user(self,username:str,email:str)->bool:
-        if username in self.users:
-            raise ValueError("User already exist")
-        self.users[username] = email
-        return True
-    
-    def get_user(self,username:str)->str:
-        return self.users.get(username,"User not found")
+class SQLiteDataBase:
+    def save_user(self,name,age):
+        conn = sqlite3.connect("users.db")
+        cursor = conn.cursor()
+        cursor.execute("INSERT INTO users (name,age) VALUES (?,?)",(name,age))
+        conn.commit()
+        conn.close()
